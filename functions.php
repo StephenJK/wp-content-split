@@ -14,7 +14,8 @@ $title = get_the_title();
   	// if string length is greater than specified, run function to split it into two strings
 		// check if array word count length is greater than specified
 		if (count($array) < $word_count_limit){
-		echo "<h1>".$title."</h1>";
+		// optional heading echo
+		// echo "<h1>".$title."</h1>";
 		the_content();
 		} else {
 
@@ -38,7 +39,8 @@ $secondhalf = str_replace(']]>', ']]&gt;', $secondhalf);
 
 
 // echo two seperate strings
-echo "<h1>".$title."</h1>";
+// optional heading echo
+// echo "<h1>".$title."</h1>";
 echo $firsthalf;
 echo "<div class='content' style='display: block; margin-top:50px; background:#ccc'>".$secondhalf."</div>";
 }}
