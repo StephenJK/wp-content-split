@@ -11,16 +11,15 @@ $array = explode(' ', get_the_content($post->ID));
 $title = get_the_title();
 
 
-  	// if string length is greater than specified, run function to split it into two strings
-		// check if array word count length is greater than specified
+		// check if array word count is less than specified
 		if (count($array) < $word_count_limit){
 		// optional heading echo
 		// echo "<h1>".$title."</h1>";
 		the_content();
 		} else {
 
-// split array into two seperate arrays at array count
-// splits according to specificed slice size
+// if word count is greater than specified, run function to split it into two strings
+// splits according to specified word count
 $firsthalf = array_slice($array, 0, $word_count_limit);
 $secondhalf = array_slice($array, $word_count_limit);
 
@@ -28,7 +27,7 @@ $secondhalf = array_slice($array, $word_count_limit);
 $firsthalf = implode(' ', $firsthalf);
 $secondhalf = implode(' ', $secondhalf);
 
-// regular expressions for HTML
+// regular expressions HTML
 $firsthalf = preg_replace('/\[.+\]/','', $firsthalf);
 $firsthalf = apply_filters('the_content', $firsthalf);
 $firsthalf = str_replace(']]>', ']]&gt;', $firsthalf);
